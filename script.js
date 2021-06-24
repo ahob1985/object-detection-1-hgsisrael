@@ -27,7 +27,7 @@ function setup() {
 
 function draw() {
   image(img, 0, 0, width, height);
-  detector = ml5.objectDectector("cocossd", modelReady);
+  detector = ml5.objectDetector("cocossd", modelReady);
 }
 
 function imageLoaded() {
@@ -55,12 +55,12 @@ function drawLabel(object) {
 
 function gotResults(error, results) {
   if(error){
-    consloe.error(error)
+    consloe.error(error);
   }else {
     //console.log(results);
     textP.html("I detect these objects");
     for(let i = 0; i < results.length; i++) {
-      drwLabel(results[i]);
+      drawLabel(results[i]);
     }
   }
 }
